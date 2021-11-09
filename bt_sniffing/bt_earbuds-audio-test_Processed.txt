@@ -1,0 +1,1075 @@
+Frame 1: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.507296000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.507296000 seconds
+    [Time delta from previous captured frame: 0.000000000 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 0.000000000 seconds]
+    Frame Number: 1
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 4
+    Number of Allowed Command Packets: 1
+    Command Opcode: LE Set Scan Enable (0x200c)
+        0010 00.. .... .... = Opcode Group Field: LE Controller Commands (0x08)
+        .... ..00 0000 1100 = Opcode Command Field: LE Set Scan Enable (0x00c)
+    Status: Success (0x00)
+
+Frame 2: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.534263000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.534263000 seconds
+    [Time delta from previous captured frame: 0.026967000 seconds]
+    [Time delta from previous displayed frame: 0.026967000 seconds]
+    [Time since reference or first frame: 0.026967000 seconds]
+    Frame Number: 2
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Create Connection (0x0405)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0000 0101 = Opcode Command Field: Create Connection (0x005)
+
+Frame 3: 14 bytes on wire (112 bits), 14 bytes captured (112 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.961155000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.961155000 seconds
+    [Time delta from previous captured frame: 0.426892000 seconds]
+    [Time delta from previous displayed frame: 0.426892000 seconds]
+    [Time since reference or first frame: 0.453859000 seconds]
+    Frame Number: 3
+    Frame Length: 14 bytes (112 bits)
+    Capture Length: 14 bytes (112 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Connect Complete
+    Event Code: Connect Complete (0x03)
+    Parameter Total Length: 11
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+    Link Type: ACL connection (Data Channels) (0x01)
+    Encryption Mode: Encryption Disabled (0x00)
+
+Frame 4: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.961705000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.961705000 seconds
+    [Time delta from previous captured frame: 0.000550000 seconds]
+    [Time delta from previous displayed frame: 0.000550000 seconds]
+    [Time since reference or first frame: 0.454409000 seconds]
+    Frame Number: 4
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Remote Supported Features (0x041b)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 1011 = Opcode Command Field: Read Remote Supported Features (0x01b)
+
+Frame 5: 14 bytes on wire (112 bits), 14 bytes captured (112 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.961937000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.961937000 seconds
+    [Time delta from previous captured frame: 0.000232000 seconds]
+    [Time delta from previous displayed frame: 0.000232000 seconds]
+    [Time since reference or first frame: 0.454641000 seconds]
+    Frame Number: 5
+    Frame Length: 14 bytes (112 bits)
+    Capture Length: 14 bytes (112 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Read Remote Supported Features
+    Event Code: Read Remote Supported Features (0x0b)
+    Parameter Total Length: 11
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    LMP Features
+        .... ...1 = 3-slot packets: True
+        .... ..1. = 5-slot packets: True
+        .... .1.. = Encryption: True
+        .... 1... = Slot Offset: True
+        ...1 .... = Timing Accuracy: True
+        ..1. .... = Role Switch: True
+        .0.. .... = Hold Mode: False
+        1... .... = Sniff Mode: True
+        .... ...0 = Park Mode: False
+        .... ..1. = Power Control Requests: True
+        .... .1.. = Channel Quality Driven Data Rate: True
+        .... 1... = SCO Link: True
+        ...1 .... = HV2 packets: True
+        ..1. .... = HV3 packets: True
+        .1.. .... = u-law Log Synchronous Data: True
+        1... .... = A-law Log Synchronous Data: True
+        .... ...1 = CVSD Synchronous Data: True
+        .... ..1. = Paging Parameter Negotiation: True
+        .... .1.. = Power Control: True
+        .... 1... = Transparent Synchronous Data: True
+        .100 .... = Flow Control Lag: 4 (1024 bytes)
+        1... .... = Broadband Encryption: True
+        .... ...0 = Reserved: False
+        .... ..1. = EDR ACL 2 Mbps Mode: True
+        .... .0.. = EDR ACL 3 Mbps Mode: False
+        .... 1... = Enhanced Inquiry Scan: True
+        ...1 .... = Interlaced Inquiry Scan: True
+        ..1. .... = Interlaced Page Scan: True
+        .1.. .... = RSSI with Inquiry Results: True
+        1... .... = EV3 Packets: True
+        .... ...1 = EV4 Packets: True
+        .... ..1. = EV5 Packets: True
+        .... .0.. = Reserved: False
+        .... 1... = AFH Capable Slave: True
+        ...1 .... = AFH Classification Slave: True
+        ..0. .... = BR/EDR Not Supported: False
+        .1.. .... = LE Supported Controller: True
+        1... .... = 3-slot EDR ACL packets: True
+        .... ...1 = 5-slot EDR ACL packets: True
+        .... ..1. = Sniff Subrating: True
+        .... .1.. = Pause Encryption: True
+        .... 1... = AFH Capable Master: True
+        ...1 .... = AFH Classification Master: True
+        ..1. .... = EDR eSCO 2 Mbps Mode: True
+        .0.. .... = EDR eSCO 3 Mbps Mode: False
+        1... .... = 3-slot EDR eSCO Packets: True
+        .... ...1 = Extended Inquiry Response: True
+        .... ..1. = Simultaneous LE and BR/EDR to Same Device Capable Controller: True
+        .... .0.. = Reserved: False
+        .... 1... = Secure Simple Pairing: True
+        ...1 .... = Encapsulated PDU: True
+        ..1. .... = Erroneous Data Reporting: True
+        .1.. .... = Non-flushable Packet Boundary Flag: True
+        0... .... = Reserved: False
+        .... ...1 = Link Supervision Timeout Changed Event: True
+        .... ..1. = Inquiry TX Power Level: True
+        .... .1.. = Enhanced Power Control: True
+        .000 0... = Reserved: False
+        1... .... = Extended Features: True
+
+Frame 6: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.963913000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.963913000 seconds
+    [Time delta from previous captured frame: 0.001976000 seconds]
+    [Time delta from previous displayed frame: 0.001976000 seconds]
+    [Time since reference or first frame: 0.456617000 seconds]
+    Frame Number: 6
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Remote Extended Features (0x041c)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 1100 = Opcode Command Field: Read Remote Extended Features (0x01c)
+
+Frame 7: 16 bytes on wire (128 bits), 16 bytes captured (128 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.963921000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.963921000 seconds
+    [Time delta from previous captured frame: 0.000008000 seconds]
+    [Time delta from previous displayed frame: 0.000008000 seconds]
+    [Time since reference or first frame: 0.456625000 seconds]
+    Frame Number: 7
+    Frame Length: 16 bytes (128 bits)
+    Capture Length: 16 bytes (128 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Read Remote Extended Features Complete
+    Event Code: Read Remote Extended Features Complete (0x23)
+    Parameter Total Length: 13
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Page Number: 1
+    Max. Page Number: 2
+    LMP Features
+        .... ...1 = Secure Simple Pairing Host: True
+        .... ..1. = LE Supported Host: True
+        .... .1.. = Simultaneous LE and BR/EDR to Same Device Capable Host: True
+        .... 0... = Secure Connections Host: False
+        0000 .... = Reserved: 0x0
+        Reserved: 00000000000000
+
+Frame 8: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.964516000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.964516000 seconds
+    [Time delta from previous captured frame: 0.000595000 seconds]
+    [Time delta from previous displayed frame: 0.000595000 seconds]
+    [Time since reference or first frame: 0.457220000 seconds]
+    Frame Number: 8
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Remote Name Request (0x0419)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 1001 = Opcode Command Field: Remote Name Request (0x019)
+
+Frame 9: 258 bytes on wire (2064 bits), 258 bytes captured (2064 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.988444000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.988444000 seconds
+    [Time delta from previous captured frame: 0.023928000 seconds]
+    [Time delta from previous displayed frame: 0.023928000 seconds]
+    [Time since reference or first frame: 0.481148000 seconds]
+    Frame Number: 9
+    Frame Length: 258 bytes (2064 bits)
+    Capture Length: 258 bytes (2064 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Remote Name Request Complete
+    Event Code: Remote Name Request Complete (0x07)
+    Parameter Total Length: 255
+    Status: Success (0x00)
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+    Remote Name: Galaxy Buds+ (6C4F)
+
+Frame 10: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.988926000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.988926000 seconds
+    [Time delta from previous captured frame: 0.000482000 seconds]
+    [Time delta from previous displayed frame: 0.000482000 seconds]
+    [Time since reference or first frame: 0.481630000 seconds]
+    Frame Number: 10
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Authentication Requested (0x0411)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 0001 = Opcode Command Field: Authentication Requested (0x011)
+
+Frame 11: 13 bytes on wire (104 bits), 13 bytes captured (104 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.989508000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.989508000 seconds
+    [Time delta from previous captured frame: 0.000582000 seconds]
+    [Time delta from previous displayed frame: 0.000582000 seconds]
+    [Time since reference or first frame: 0.482212000 seconds]
+    Frame Number: 11
+    Frame Length: 13 bytes (104 bits)
+    Capture Length: 13 bytes (104 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 10
+    Number of Allowed Command Packets: 1
+    Command Opcode: Link Key Request Negative Reply (0x040c)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0000 1100 = Opcode Command Field: Link Key Request Negative Reply (0x00c)
+    Status: Success (0x00)
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+
+Frame 12: 13 bytes on wire (104 bits), 13 bytes captured (104 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:44.990233000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913244.990233000 seconds
+    [Time delta from previous captured frame: 0.000725000 seconds]
+    [Time delta from previous displayed frame: 0.000725000 seconds]
+    [Time since reference or first frame: 0.482937000 seconds]
+    Frame Number: 12
+    Frame Length: 13 bytes (104 bits)
+    Capture Length: 13 bytes (104 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 10
+    Number of Allowed Command Packets: 1
+    Command Opcode: IO Capability Request Reply (0x042b)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0010 1011 = Opcode Command Field: IO Capability Request Reply (0x02b)
+    Status: Success (0x00)
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+
+Frame 13: 13 bytes on wire (104 bits), 13 bytes captured (104 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:45.149530000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913245.149530000 seconds
+    [Time delta from previous captured frame: 0.159297000 seconds]
+    [Time delta from previous displayed frame: 0.159297000 seconds]
+    [Time since reference or first frame: 0.642234000 seconds]
+    Frame Number: 13
+    Frame Length: 13 bytes (104 bits)
+    Capture Length: 13 bytes (104 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 10
+    Number of Allowed Command Packets: 1
+    Command Opcode: User Confirmation Request Reply (0x042c)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0010 1100 = Opcode Command Field: User Confirmation Request Reply (0x02c)
+    Status: Success (0x00)
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+
+Frame 14: 6 bytes on wire (48 bits), 6 bytes captured (48 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:45.217293000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913245.217293000 seconds
+    [Time delta from previous captured frame: 0.067763000 seconds]
+    [Time delta from previous displayed frame: 0.067763000 seconds]
+    [Time since reference or first frame: 0.709997000 seconds]
+    Frame Number: 14
+    Frame Length: 6 bytes (48 bits)
+    Capture Length: 6 bytes (48 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Authentication Complete
+    Event Code: Authentication Complete (0x06)
+    Parameter Total Length: 3
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+
+Frame 15: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:45.217712000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913245.217712000 seconds
+    [Time delta from previous captured frame: 0.000419000 seconds]
+    [Time delta from previous displayed frame: 0.000419000 seconds]
+    [Time since reference or first frame: 0.710416000 seconds]
+    Frame Number: 15
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Set Connection Encryption (0x0413)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 0011 = Opcode Command Field: Set Connection Encryption (0x013)
+
+Frame 16: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:45.237104000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913245.237104000 seconds
+    [Time delta from previous captured frame: 0.019392000 seconds]
+    [Time delta from previous displayed frame: 0.019392000 seconds]
+    [Time since reference or first frame: 0.729808000 seconds]
+    Frame Number: 16
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Encryption Change
+    Event Code: Encryption Change (0x08)
+    Parameter Total Length: 4
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Encryption Enable: Link Level Encryption is ON (0x01)
+
+Frame 17: 10 bytes on wire (80 bits), 10 bytes captured (80 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:45.237592000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913245.237592000 seconds
+    [Time delta from previous captured frame: 0.000488000 seconds]
+    [Time delta from previous displayed frame: 0.000488000 seconds]
+    [Time since reference or first frame: 0.730296000 seconds]
+    Frame Number: 17
+    Frame Length: 10 bytes (80 bits)
+    Capture Length: 10 bytes (80 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 7
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Encryption Key Size (0x1408)
+        0001 01.. .... .... = Opcode Group Field: Status Parameters (0x05)
+        .... ..00 0000 1000 = Opcode Command Field: Read Encryption Key Size (0x008)
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Encryption Key Size: 16
+
+Frame 18: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:49.652258000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913249.652258000 seconds
+    [Time delta from previous captured frame: 4.414666000 seconds]
+    [Time delta from previous displayed frame: 4.414666000 seconds]
+    [Time since reference or first frame: 5.144962000 seconds]
+    Frame Number: 18
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Disconnect (0x0406)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0000 0110 = Opcode Command Field: Disconnect (0x006)
+
+Frame 19: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:49.752479000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913249.752479000 seconds
+    [Time delta from previous captured frame: 0.100221000 seconds]
+    [Time delta from previous displayed frame: 0.100221000 seconds]
+    [Time since reference or first frame: 5.245183000 seconds]
+    Frame Number: 19
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Disconnect Complete
+    Event Code: Disconnect Complete (0x05)
+    Parameter Total Length: 4
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Reason: Connection Terminated by Local Host (0x16)
+
+Frame 20: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:51.634705000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913251.634705000 seconds
+    [Time delta from previous captured frame: 1.882226000 seconds]
+    [Time delta from previous displayed frame: 1.882226000 seconds]
+    [Time since reference or first frame: 7.127409000 seconds]
+    Frame Number: 20
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Create Connection (0x0405)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0000 0101 = Opcode Command Field: Create Connection (0x005)
+
+Frame 21: 14 bytes on wire (112 bits), 14 bytes captured (112 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.658807000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.658807000 seconds
+    [Time delta from previous captured frame: 1.024102000 seconds]
+    [Time delta from previous displayed frame: 1.024102000 seconds]
+    [Time since reference or first frame: 8.151511000 seconds]
+    Frame Number: 21
+    Frame Length: 14 bytes (112 bits)
+    Capture Length: 14 bytes (112 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Connect Complete
+    Event Code: Connect Complete (0x03)
+    Parameter Total Length: 11
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+    Link Type: ACL connection (Data Channels) (0x01)
+    Encryption Mode: Encryption Disabled (0x00)
+
+Frame 22: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.659389000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.659389000 seconds
+    [Time delta from previous captured frame: 0.000582000 seconds]
+    [Time delta from previous displayed frame: 0.000582000 seconds]
+    [Time since reference or first frame: 8.152093000 seconds]
+    Frame Number: 22
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Remote Supported Features (0x041b)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 1011 = Opcode Command Field: Read Remote Supported Features (0x01b)
+
+Frame 23: 14 bytes on wire (112 bits), 14 bytes captured (112 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.659627000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.659627000 seconds
+    [Time delta from previous captured frame: 0.000238000 seconds]
+    [Time delta from previous displayed frame: 0.000238000 seconds]
+    [Time since reference or first frame: 8.152331000 seconds]
+    Frame Number: 23
+    Frame Length: 14 bytes (112 bits)
+    Capture Length: 14 bytes (112 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Read Remote Supported Features
+    Event Code: Read Remote Supported Features (0x0b)
+    Parameter Total Length: 11
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    LMP Features
+        .... ...1 = 3-slot packets: True
+        .... ..1. = 5-slot packets: True
+        .... .1.. = Encryption: True
+        .... 1... = Slot Offset: True
+        ...1 .... = Timing Accuracy: True
+        ..1. .... = Role Switch: True
+        .0.. .... = Hold Mode: False
+        1... .... = Sniff Mode: True
+        .... ...0 = Park Mode: False
+        .... ..1. = Power Control Requests: True
+        .... .1.. = Channel Quality Driven Data Rate: True
+        .... 1... = SCO Link: True
+        ...1 .... = HV2 packets: True
+        ..1. .... = HV3 packets: True
+        .1.. .... = u-law Log Synchronous Data: True
+        1... .... = A-law Log Synchronous Data: True
+        .... ...1 = CVSD Synchronous Data: True
+        .... ..1. = Paging Parameter Negotiation: True
+        .... .1.. = Power Control: True
+        .... 1... = Transparent Synchronous Data: True
+        .100 .... = Flow Control Lag: 4 (1024 bytes)
+        1... .... = Broadband Encryption: True
+        .... ...0 = Reserved: False
+        .... ..1. = EDR ACL 2 Mbps Mode: True
+        .... .0.. = EDR ACL 3 Mbps Mode: False
+        .... 1... = Enhanced Inquiry Scan: True
+        ...1 .... = Interlaced Inquiry Scan: True
+        ..1. .... = Interlaced Page Scan: True
+        .1.. .... = RSSI with Inquiry Results: True
+        1... .... = EV3 Packets: True
+        .... ...1 = EV4 Packets: True
+        .... ..1. = EV5 Packets: True
+        .... .0.. = Reserved: False
+        .... 1... = AFH Capable Slave: True
+        ...1 .... = AFH Classification Slave: True
+        ..0. .... = BR/EDR Not Supported: False
+        .1.. .... = LE Supported Controller: True
+        1... .... = 3-slot EDR ACL packets: True
+        .... ...1 = 5-slot EDR ACL packets: True
+        .... ..1. = Sniff Subrating: True
+        .... .1.. = Pause Encryption: True
+        .... 1... = AFH Capable Master: True
+        ...1 .... = AFH Classification Master: True
+        ..1. .... = EDR eSCO 2 Mbps Mode: True
+        .0.. .... = EDR eSCO 3 Mbps Mode: False
+        1... .... = 3-slot EDR eSCO Packets: True
+        .... ...1 = Extended Inquiry Response: True
+        .... ..1. = Simultaneous LE and BR/EDR to Same Device Capable Controller: True
+        .... .0.. = Reserved: False
+        .... 1... = Secure Simple Pairing: True
+        ...1 .... = Encapsulated PDU: True
+        ..1. .... = Erroneous Data Reporting: True
+        .1.. .... = Non-flushable Packet Boundary Flag: True
+        0... .... = Reserved: False
+        .... ...1 = Link Supervision Timeout Changed Event: True
+        .... ..1. = Inquiry TX Power Level: True
+        .... .1.. = Enhanced Power Control: True
+        .000 0... = Reserved: False
+        1... .... = Extended Features: True
+
+Frame 24: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.660283000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.660283000 seconds
+    [Time delta from previous captured frame: 0.000656000 seconds]
+    [Time delta from previous displayed frame: 0.000656000 seconds]
+    [Time since reference or first frame: 8.152987000 seconds]
+    Frame Number: 24
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Remote Extended Features (0x041c)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 1100 = Opcode Command Field: Read Remote Extended Features (0x01c)
+
+Frame 25: 16 bytes on wire (128 bits), 16 bytes captured (128 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.660373000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.660373000 seconds
+    [Time delta from previous captured frame: 0.000090000 seconds]
+    [Time delta from previous displayed frame: 0.000090000 seconds]
+    [Time since reference or first frame: 8.153077000 seconds]
+    Frame Number: 25
+    Frame Length: 16 bytes (128 bits)
+    Capture Length: 16 bytes (128 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Read Remote Extended Features Complete
+    Event Code: Read Remote Extended Features Complete (0x23)
+    Parameter Total Length: 13
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Page Number: 1
+    Max. Page Number: 2
+    LMP Features
+        .... ...1 = Secure Simple Pairing Host: True
+        .... ..1. = LE Supported Host: True
+        .... .1.. = Simultaneous LE and BR/EDR to Same Device Capable Host: True
+        .... 0... = Secure Connections Host: False
+        0000 .... = Reserved: 0x0
+        Reserved: 00000000000000
+
+Frame 26: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.660820000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.660820000 seconds
+    [Time delta from previous captured frame: 0.000447000 seconds]
+    [Time delta from previous displayed frame: 0.000447000 seconds]
+    [Time since reference or first frame: 8.153524000 seconds]
+    Frame Number: 26
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Remote Name Request (0x0419)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 1001 = Opcode Command Field: Remote Name Request (0x019)
+
+Frame 27: 258 bytes on wire (2064 bits), 258 bytes captured (2064 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.683595000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.683595000 seconds
+    [Time delta from previous captured frame: 0.022775000 seconds]
+    [Time delta from previous displayed frame: 0.022775000 seconds]
+    [Time since reference or first frame: 8.176299000 seconds]
+    Frame Number: 27
+    Frame Length: 258 bytes (2064 bits)
+    Capture Length: 258 bytes (2064 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Remote Name Request Complete
+    Event Code: Remote Name Request Complete (0x07)
+    Parameter Total Length: 255
+    Status: Success (0x00)
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+    Remote Name: Galaxy Buds+ (6C4F)
+
+Frame 28: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.683990000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.683990000 seconds
+    [Time delta from previous captured frame: 0.000395000 seconds]
+    [Time delta from previous displayed frame: 0.000395000 seconds]
+    [Time since reference or first frame: 8.176694000 seconds]
+    Frame Number: 28
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Authentication Requested (0x0411)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 0001 = Opcode Command Field: Authentication Requested (0x011)
+
+Frame 29: 13 bytes on wire (104 bits), 13 bytes captured (104 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.685645000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.685645000 seconds
+    [Time delta from previous captured frame: 0.001655000 seconds]
+    [Time delta from previous displayed frame: 0.001655000 seconds]
+    [Time since reference or first frame: 8.178349000 seconds]
+    Frame Number: 29
+    Frame Length: 13 bytes (104 bits)
+    Capture Length: 13 bytes (104 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 10
+    Number of Allowed Command Packets: 1
+    Command Opcode: Link Key Request Reply (0x040b)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0000 1011 = Opcode Command Field: Link Key Request Reply (0x00b)
+    Status: Success (0x00)
+    BD_ADDR: f8:8f:07:27:6c:4f (f8:8f:07:27:6c:4f)
+
+Frame 30: 6 bytes on wire (48 bits), 6 bytes captured (48 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.692772000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.692772000 seconds
+    [Time delta from previous captured frame: 0.007127000 seconds]
+    [Time delta from previous displayed frame: 0.007127000 seconds]
+    [Time since reference or first frame: 8.185476000 seconds]
+    Frame Number: 30
+    Frame Length: 6 bytes (48 bits)
+    Capture Length: 6 bytes (48 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Authentication Complete
+    Event Code: Authentication Complete (0x06)
+    Parameter Total Length: 3
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+
+Frame 31: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.693343000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.693343000 seconds
+    [Time delta from previous captured frame: 0.000571000 seconds]
+    [Time delta from previous displayed frame: 0.000571000 seconds]
+    [Time since reference or first frame: 8.186047000 seconds]
+    Frame Number: 31
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Status
+    Event Code: Command Status (0x0f)
+    Parameter Total Length: 4
+    Status: Pending (0x00)
+    Number of Allowed Command Packets: 1
+    Command Opcode: Set Connection Encryption (0x0413)
+        0000 01.. .... .... = Opcode Group Field: Link Control Commands (0x01)
+        .... ..00 0001 0011 = Opcode Command Field: Set Connection Encryption (0x013)
+
+Frame 32: 7 bytes on wire (56 bits), 7 bytes captured (56 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.718481000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.718481000 seconds
+    [Time delta from previous captured frame: 0.025138000 seconds]
+    [Time delta from previous displayed frame: 0.025138000 seconds]
+    [Time since reference or first frame: 8.211185000 seconds]
+    Frame Number: 32
+    Frame Length: 7 bytes (56 bits)
+    Capture Length: 7 bytes (56 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Encryption Change
+    Event Code: Encryption Change (0x08)
+    Parameter Total Length: 4
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Encryption Enable: Link Level Encryption is ON (0x01)
+
+Frame 33: 10 bytes on wire (80 bits), 10 bytes captured (80 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:52.719032000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913252.719032000 seconds
+    [Time delta from previous captured frame: 0.000551000 seconds]
+    [Time delta from previous displayed frame: 0.000551000 seconds]
+    [Time since reference or first frame: 8.211736000 seconds]
+    Frame Number: 33
+    Frame Length: 10 bytes (80 bits)
+    Capture Length: 10 bytes (80 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 7
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Encryption Key Size (0x1408)
+        0001 01.. .... .... = Opcode Group Field: Status Parameters (0x05)
+        .... ..00 0000 1000 = Opcode Command Field: Read Encryption Key Size (0x008)
+    Status: Success (0x00)
+    Connection Handle: 0x000c
+    Encryption Key Size: 16
+
+Frame 34: 15 bytes on wire (120 bits), 15 bytes captured (120 bits)
+    Encapsulation type: Bluetooth H4 with linux header (99)
+    Arrival Time: Nov  3, 2021 00:20:55.959535000 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1635913255.959535000 seconds
+    [Time delta from previous captured frame: 3.240503000 seconds]
+    [Time delta from previous displayed frame: 3.240503000 seconds]
+    [Time since reference or first frame: 11.452239000 seconds]
+    Frame Number: 34
+    Frame Length: 15 bytes (120 bits)
+    Capture Length: 15 bytes (120 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    Point-to-Point Direction: Received (1)
+    [Protocols in frame: bluetooth:hci_h4:bthci_evt]
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - Command Complete
+    Event Code: Command Complete (0x0e)
+    Parameter Total Length: 12
+    Number of Allowed Command Packets: 1
+    Command Opcode: Read Local Version Information (0x1001)
+        0001 00.. .... .... = Opcode Group Field: Informational Parameters (0x04)
+        .... ..00 0000 0001 = Opcode Command Field: Read Local Version Information (0x001)
+    Status: Success (0x00)
+    HCI Version: 5.0 (0x09)
+    HCI Revision: 342
+    LMP Version: 5.0 (0x09)
+    Manufacturer Name: Cypress Semiconductor (0x0131)
+    LMP Subversion: 24857
+
