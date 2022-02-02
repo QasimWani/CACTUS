@@ -1,0 +1,12 @@
+pi@raspberrypi:~/Documents/ECE4805_SDP $ tcpdump -G 300 -W 1 -w bt_earbuds-audio-test.pcap -i bluetooth0
+tcpdump: listening on bluetooth0, link-type BLUETOOTH_HCI_H4_WITH_PHDR (Bluetooth HCI UART transport layer plus pseudo-header), capture size 262144 bytes
+Maximum file limit reached: 1
+35 packets captured
+24746 packets received by filter
+0 packets dropped by kernel
+pi@raspberrypi:~/Documents/ECE4805_SDP $ tcpdump -G 300 -W 1 -w bt_empty-test.pcap -i bluetooth0
+tcpdump: listening on bluetooth0, link-type BLUETOOTH_HCI_H4_WITH_PHDR (Bluetooth HCI UART transport layer plus pseudo-header), capture size 262144 bytes
+Maximum file limit reached: 1
+1 packet captured
+24766 packets received by filter
+0 packets dropped by kernel
