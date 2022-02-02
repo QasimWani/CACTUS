@@ -6,9 +6,9 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-session": "^1.17.2",
+    "express": "^4.17.2",
     "express-http-to-https": "^1.1.4",
+    "express-session": "^1.17.2",
     "memorystore": "^1.6.6",
     "mongoose": "^6.0.12",
     "passport-local-mongoose": "^6.1.0"
