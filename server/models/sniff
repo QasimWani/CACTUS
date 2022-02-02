@@ -1,0 +1,15 @@
+var mongoose = require("mongoose"),
+    passportLocalMongoose = require("passport-local-mongoose");
+
+var SniffSchema = new mongoose.Schema({
+    observation: [
+        {
+            dns : String,
+            source_ip : String,
+            destination_ip : String
+        }
+    ]
+});
+
+SniffSchema.plugin(passportLocalMongoose);
+module.exports = mongoose.model("Sniff", SniffSchema);
