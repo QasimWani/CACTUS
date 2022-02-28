@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
 // mongoose.set('useFindAndModify', false);
 
 // mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://"+process.env.mongoDB+"/CACTUS",{ useNewUrlParser: true , useUnifiedTopology: true});
+// mongoose.connect("mongodb://"+process.env.mongoDB+"/CACTUS",{ useNewUrlParser: true , useUnifiedTopology: true});
 
 // /**
 //  * Constant 10 minute Heroku based request for minimized load times.
@@ -73,51 +73,64 @@ mongoose.connect("mongodb://"+process.env.mongoDB+"/CACTUS",{ useNewUrlParser: t
  * data specified by param.
  * @param {Object} data : Check API under models/sniff
  */
-var createObservation = (data)=>{
-    Sniff.create(data, (err, addedObj)=>{
-        if(err)
-        {
-            if(err.code === 11000)
-            {
-                Sniff.collection.dropIndex("username_1", (err, indexDrop)=>{
-                    if(err)
-                    {
-                        console.error("Failed to drop index duplicate key");
-                        throw new Error(err.message);
-                    }
-                    console.log("index duplicate key drop successful");
-                    createObservation(data);
-                });
-            }
-            else
-            {
-                throw new Error(err.message);
-            }
+// var createObservation = (data)=>{
+//     Sniff.create(data, (err, addedObj)=>{
+//         if(err)
+//         {
+//             if(err.code === 11000)
+//             {
+//                 Sniff.collection.dropIndex("username_1", (err, indexDrop)=>{
+//                     if(err)
+//                     {
+//                         console.error("Failed to drop index duplicate key");
+//                         throw new Error(err.message);
+//                     }
+//                     console.log("index duplicate key drop successful");
+//                     createObservation(data);
+//                 });
+//             }
+//             else
+//             {
+//                 throw new Error(err.message);
+//             }
             
-        }
-        console.log("Successfully created new object");
-    });
-};
+//         }
+//         console.log("Successfully created new object");
+//     });
+// };
 
 //******************************************************************** DEFAULT ROUTES *************************************************************************** */
+const tmp = [
+    {"dns":"safebrowsing.clients.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"safebrowsing-cache.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"www.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"clients1.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"anise.nsm.umass.edu.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"safebrowsing.clients.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"safebrowsing-cache.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"www.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"clients1.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+    {"dns":"anise.nsm.umass.edu.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
+];
 var x;
 app.get("/", (req, res)=>{
-    let data = req.query;
-    x = data;
-    createObservation(data);
-    return res.send("uploaded data");
+    return res.send(tmp);
+    // let data = req.query;
+    // x = data;
+    // createObservation(data);
+    // return res.send("uploaded data");
 });
 
 // create a route called /showdata that will return all the data in the database
-app.get("/showdata", (req, res)=>{
-    Sniff.find({}, (err, data)=>{
-        if(err)
-        {
-            throw new Error(err.message);
-        }
-        return res.json(x);
-    });
-});
+// app.get("/showdata", (req, res)=>{
+//     Sniff.find({}, (err, data)=>{
+//         if(err)
+//         {
+//             throw new Error(err.message);
+//         }
+//         return res.json(x);
+//     });
+// });
 
 app.post("*", (req, res)=>{
     return res.send("Invalid API route");
