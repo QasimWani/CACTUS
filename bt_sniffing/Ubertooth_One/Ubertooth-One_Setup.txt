@@ -1,0 +1,78 @@
+For setting up the Ubertooth One on the Raspberry Pi 4 Model B:
+
+0. Personally, I would set up a directory to hold the installation files in the Home
+   directory, just to keep things together and sorted:
+   cd ~
+   mkdir Ubertooth-One
+   cd Ubertooth-One
+
+1. Install according to the Software "Building from git" page (not the "Build Guide" page),
+   a) Follow the instructions under "Debian":
+      https://ubertooth.readthedocs.io/en/latest/building_from_git.html
+   b) Follow the instructions under "libbtbb"
+   c) Navigate back to the Ubertooth-One directory at Home ( cd ~/Ubertooth-One ), then
+      follow the instructions under "Ubertooth tools"
+
+2. This can be tested by going through the features shown in the "Getting Started" page:
+   https://ubertooth.readthedocs.io/en/latest/getting_started.html
+   a) When the guide mentions the `ubertooth-specan-ui` executable, it refers to the code
+      stored in the `~/Ubertooth-One/ubertooth/host/python/specan_ui` directory, but you can
+      call the executable from anywhere
+   b) For LAP sniffing, the tools in libbtbb should already be compiled from the installation
+      instructions in Step 1. The `ubertooth-rx` executable refers to the code from the
+      `~/Ubertooth-One/ubertooth/host/ubertooth-tools/src` directory, but you can call the
+      executable from anywhere
+
+No need to install Kismet, since it is an 802.11 monitoring tool, and we only care about
+Bluetooth.
+
+Right now, packet capture works by continually writing to a file or a pipe /tmp/pipe and
+having software like scapy or Wireshark read it.
+
+It is worth noting that the instructions for updating/flashing the firmware does not work,
+regardless of whether the user followed the instructions from "Build Guide" or "Getting
+Started," so the software should just be reinstalled completely.
+
+
+
+To sniff Bluetooth packets, execute this command:
+ubertooth-btle -f -q <filename>
+
+Call ubertooth-btle by itself to get the usage/man page
+
+Choose -f flag
+-f : follow connections
+        Follow mode is the preferred mode for general use. In this mode, Ubertooth will listen on
+        one of three advertising channels waiting for a BLE connection to be established. When a
+        connection is established, Ubertooth will hop along the data channels, passively capturing
+        the data sent between the central and peripheral. After the connection terminates,
+        Ubertooth will return to the advertising channel and wait for another connection.
+-p : promiscuous, sniff active connections
+        Promiscuous  mode is an experimental mode for sniffing connections after they have already
+        been established. This mode can be used to sniff long-lived connections.
+    Using the -p flag actually results in a PCAP file with less information
+        Does not even give source and destination address information
+-i can be used with -f or -p to interfere with one connection and immediately return to idle
+-I can be used with -f or -p to interfere continuously
+
+Use -q to save the file:
+    The recommended logging format is PcapNG (-r) or PCAP with LE Pseudoheader (-q).
+    For compatibility with crackle, use PCAP with PPI (-c).
+
+
+
+Other notes:
+
+According to the FAQ page, the Ubertooth not only captures Bluetooth Basic Rate and Low
+Energy packets, but potentially some Wi-Fi (802.11 FHSS), so, if necessary, we should find
+out how to limit packet captures to Bluetooth only.
+I have not seen this information anywhere else before, and can't find any other sources
+stating the Ubertooth can sniff Wi-Fi.
+https://ubertooth.readthedocs.io/en/latest/faq.html
+
+Potentially useful display filters for packets for Wireshark/Tshark:
+https://ubertooth.readthedocs.io/en/latest/capturing_BLE_Wireshark.html#useful-display-filters
+
+The bottom of this guide has tools for exploiting Bluetooth Low Energy,
+i.e. Crackle for decoding and Gatttool for manipulating Bluetooth attribute values:
+https://wiki.elvis.science/index.php?title=Bluetooth_Sniffing_with_Ubertooth:_A_Step-by-step_guide#Exploiting_BLE

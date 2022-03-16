@@ -1,0 +1,13 @@
+The PCAP file that has the following useful information:
+Frame > Arrival Time                        (e.g. Feb  7, 2022 17:13:07.026952047 EST)
+Frame > Epoch Time                          (e.g. 1644271987.026952047 seconds)
+Bluetooth Low Energy RF Info > RF Channel   (e.g. 0, 2402 MHz, Advertising channel 37)
+Bluetooth Low Energy Link Layer > Scanning Address (i.e. source MAC address)
+Bluetooth Low Energy Link Layer > Advertising Address (meaning depends on existence of Scanning Address)
+    NOTE: if scanning address exists, advertising address is destination MAC address
+          if scanning addres does NOT exist, advertising address is source MAC address,
+          and the destination MAC address is ff:ff:ff:ff:ff:ff (broadcast)
+One or none of these may exist in a given BTLE packet:
+    Bluetooth Low Energy Link Layer > Advertising Data > Device Name
+    Bluetooth Low Energy Link Layer > Advertising Data > Manufacturer Specific > Company ID     (i.e. device's manufacturer brand)
+    Bluetooth Low Energy Link Layer > Advertising Data > Service Data - 16 bit UUID > UUID 16   (i.e. device's manufacturer brand)

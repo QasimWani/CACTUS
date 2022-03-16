@@ -1,0 +1,14 @@
+Ubertooth-One
+ |
+ |-libbtbb (directory, sniffing tool)
+ |  |-tool files...
+ |
+ |-scanning
+ |  |-pcap_archive (directory, pcap file archive)
+ |  |-pcap_to_json (executable, converts a pcap file in scans_pcap to a txt file in scans_json
+ |  |-rotate_scan  (executable, promiscuously sniffs for BTLE packets and dumps them in scans_pcap
+ |  |-scans_pcap   (directory, holds packets sniffed by rotate_scan)
+ |  |-scans_json   (directory, holds json files produced by pcap_to_json)
+ |
+ |-ubertooth (directory, sniffing tool)
+    |-tool files...
