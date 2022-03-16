@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Bash script to read through the scans_pcap directory,
+# convert them to TXT files, and delete processed PCAP files
+
+# Path to the directory with the BTLE pcap files
+DIR="scans_pcap"
+
+while [ true ]; do
+    # Putting the contents of the directory into a bash list
+    FILES=("$DIR"/*.pcap)
+
+    # When the directory does not have any .pcap files, the FILES list will have
+    # one element: <directory name>/*.pcap
+    # This means if that element is present, the directory had nothing useful
+    # and we avoid doing work for now
+    if [ "${FILES[-1]}" != ""$DIR"/*.pcap" ]; then
+        # Use "${FILES[@]}" to get all the elements in the list
+        # echo "${FILES[@]}"
+
+        # For older versions of bash, use "${FILES[${#FILES[@]}-1]}"
+        # to get the last element in the list
+        # echo "${FILES[-1]}"
+        
+	# This redundant check seems to be necessary
+	if [ "${FILES[-1]}" != ""$DIR"/*.pcap" ]; then
+	    # Use tshark to process the PCAP file and make a TXT file
+            tshark -r "${FILES[-1]}" -V > "scans_txt/$(basename "${FILES[-1]}" .pcap).txt"
+	    # Move the processed PCAP out of the folder so that it is only
+	    # processed once
+            mv "${FILES[-1]}" pcap_archive/$(basename "${FILES[-1]}")
+	    # Let the user know that the job was completed
+            echo "${FILES[-1]} converted to "scans_txt/$(basename "${FILES[-1]}" .pcap).txt", then archived"
+	fi
+    fi
+done

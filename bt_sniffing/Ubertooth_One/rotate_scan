@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Bash script to run the ubertooth-btle command periodically, rotating file names each time
+
+DIR="scans_pcap"
+
+while [ TRUE ]; do
+    DATE=`date +"%Y-%m-%d_%T"`
+    TIMER=60
+    timeout $TIMER ubertooth-btle -f -q ""$DIR"/bt_$DATE.pcap"
+    # sleep 1
+done

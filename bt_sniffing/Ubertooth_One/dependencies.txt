@@ -1,0 +1,5 @@
+Tshark
+    https://tshark.dev/setup/install/
+    `sudo apt-get install tshark`
+    OR
+    `sudo apt-get install wireshark-cli`
