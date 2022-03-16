@@ -122,5 +122,5 @@ if __name__ == "__main__":
 
     #  send a post request to the server with the txt file
     response = requests.post(
-        "http://localhost:5000/api/sniff", json=final_table)
+        "https://apicactus.herokuapp.com/api/sniff", json=final_table)
     print(response.text)
