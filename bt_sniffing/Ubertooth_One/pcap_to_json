@@ -22,16 +22,16 @@ while [ true ]; do
         # to get the last element in the list
         # echo "${FILES[-1]}"
         
-	# This redundant check seems to be necessary
-	if [ "${FILES[-1]}" != ""$DIR"/*.pcap" ]; then
-	    # Use tshark to process the PCAP file and make a JSON file
-        # Not sure if `-V` is necessary after using the `-T json` flag
-            tshark -T json -r "${FILES[-1]}" -V > "scans_json/$(basename "${FILES[-1]}" .pcap).json"
-	    # Move the processed PCAP out of the folder so that it is only
-	    # processed once
-            mv "${FILES[-1]}" pcap_archive/$(basename "${FILES[-1]}")
-	    # Let the user know that the job was completed
-            echo "${FILES[-1]} converted to "scans_txt/$(basename "${FILES[-1]}" .pcap).txt", then archived"
-	fi
+        # This redundant check seems to be necessary
+        if [ "${FILES[-1]}" != ""$DIR"/*.pcap" ]; then
+            # Use tshark to process the PCAP file and make a JSON file
+            # Not sure if `-V` is necessary after using the `-T json` flag
+                tshark -T json -r "${FILES[-1]}" -V > "scans_json/$(basename "${FILES[-1]}" .pcap).json"
+            # Move the processed PCAP out of the folder so that it is only
+            # processed once
+                mv "${FILES[-1]}" pcap_archive/$(basename "${FILES[-1]}")
+            # Let the user know that the job was completed
+                echo "${FILES[-1]} converted to "scans_txt/$(basename "${FILES[-1]}" .pcap).txt", then archived"
+        fi
     fi
 done
