@@ -1,6 +1,7 @@
 import re
 import argparse
 import json
+import requests
 
 # finds the position of frame
 
@@ -118,3 +119,8 @@ if __name__ == "__main__":
     file_name = args.file.split(".")[0]
     with open(file_name + ".json", "w") as f:
         json.dump(final_table, f, indent=4)
+
+    #  send a post request to the server with the txt file
+    response = requests.post(
+        "http://localhost:5000/api/sniff", json=final_table)
+    print(response.text)

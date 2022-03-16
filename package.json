@@ -6,7 +6,7 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "dotenv": "^10.0.0",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "express-http-to-https": "^1.1.4",
     "express-session": "^1.17.2",
     "memorystore": "^1.6.6",
