@@ -1,5 +1,3 @@
-const { json } = require("body-parser");
-
 const express = require("express"),
     app = express(),
     mongoose = require("mongoose"),
@@ -9,6 +7,7 @@ const express = require("express"),
 
 dotenv.config();
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 
 var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS; //makes all request secure
@@ -56,7 +55,25 @@ app.use(function (req, res, next) {
 // mongoose.set('useFindAndModify', false);
 
 // mongoose.Promise = global.Promise;
-// mongoose.connect("mongodb://"+process.env.mongoDB+"/CACTUS",{ useNewUrlParser: true , useUnifiedTopology: true});
+const URI = `mongodb+srv://${process.env.mongo_username}:${process.env.mongo_password}@cluster0.ql2nq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
+const connectionParams={
+    useNewUrlParser: true,
+    // useCreateIndex: true,
+    useUnifiedTopology: true 
+}
+
+mongoose.connect(URI,connectionParams)
+    .then( () => {
+        console.log('Connected to database')
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to the database. \n${err}`);
+    });
+
+
+// mongoose.connect("mongodb://"+process.env.mongoDB+"/CACTUS",{ useNewUrlParser: true , useUnifiedTopology: true}); // LOCAL connection
+
 
 // /**
 //  * Constant 10 minute Heroku based request for minimized load times.
@@ -73,67 +90,59 @@ app.use(function (req, res, next) {
  * data specified by param.
  * @param {Object} data : Check API under models/sniff
  */
-// var createObservation = (data)=>{
-//     Sniff.create(data, (err, addedObj)=>{
-//         if(err)
-//         {
-//             if(err.code === 11000)
-//             {
-//                 Sniff.collection.dropIndex("username_1", (err, indexDrop)=>{
-//                     if(err)
-//                     {
-//                         console.error("Failed to drop index duplicate key");
-//                         throw new Error(err.message);
-//                     }
-//                     console.log("index duplicate key drop successful");
-//                     createObservation(data);
-//                 });
-//             }
-//             else
-//             {
-//                 throw new Error(err.message);
-//             }
+var createObservation = (data)=>{
+    Sniff.create({"capture" : data}, (err, addedObj)=>{
+        if(err)
+        {
+            if(err.code === 11000)
+            {
+                Sniff.collection.dropIndex("username_1", (err, indexDrop)=>{
+                    if(err)
+                    {
+                        console.error("Failed to drop index duplicate key");
+                        throw new Error(err.message);
+                    }
+                    console.log("index duplicate key drop successful");
+                    createObservation(data);
+                });
+            }
+            else
+            {
+                throw new Error(err.message);
+            }
             
-//         }
-//         console.log("Successfully created new object");
-//     });
-// };
+        }
+        console.log("Successfully created new object");
+    });
+};
 
-//******************************************************************** DEFAULT ROUTES *************************************************************************** */
-const tmp = [
-    {"dns":"safebrowsing.clients.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"safebrowsing-cache.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"www.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"clients1.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"anise.nsm.umass.edu.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"safebrowsing.clients.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"safebrowsing-cache.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"www.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"clients1.google.com.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-    {"dns":"anise.nsm.umass.edu.","source_ip":"68.87.71.230","destination_ip":"192.168.1.100"},
-];
-var x;
+//******************************************************************** ROUTES *************************************************************************** */
+
+//  create a POST route that will read the json data and create a new Sniff object
+app.post("/api/sniff", (req, res)=>{
+    console.log("POST request received");
+    var data = req.body;
+    createObservation(data);
+    res.send("Successfully uploaded new object");
+});
+
 app.get("/", (req, res)=>{
-    return res.send(tmp);
-    // let data = req.query;
-    // x = data;
-    // createObservation(data);
-    // return res.send("uploaded data");
+    res.send("Hello world!");
 });
 
 // create a route called /showdata that will return all the data in the database
-// app.get("/showdata", (req, res)=>{
-//     Sniff.find({}, (err, data)=>{
-//         if(err)
-//         {
-//             throw new Error(err.message);
-//         }
-//         return res.json(x);
-//     });
-// });
+app.get("/showdata", (req, res)=>{
+    Sniff.find({}, (err, data)=>{
+        if(err)
+        {
+            throw new Error(err.message);
+        }
+        return res.json(data);
+    });
+});
 
 app.post("*", (req, res)=>{
-    return res.send("Invalid API route");
+    res.send("Invalid API route");
 });
 
 //******************************************************************** LAUNCH SERVER *************************************************************************** */
@@ -141,6 +150,14 @@ app.listen(process.env.PORT || 5000, process.env.IP,()=>{
     console.log(`Server Connected at port ${process.env.PORT || 5000}`);
  });
 
-//  time range
-//  cateogry: wifi or bluetooth
-//  by user-id
+// TEMPORARY
+// remove the mongo collection Sniff and recreate it
+// Sniff.collection.drop((err, collectionDrop)=>{
+//     if(err)
+//     {
+//         console.error("Failed to drop collection");
+//         throw new Error(err.message);
+//     }
+//     console.log("Collection dropped successfully");
+// });
+// TEMPORARY
