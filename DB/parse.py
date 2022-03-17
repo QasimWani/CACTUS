@@ -2,6 +2,9 @@ import re
 import argparse
 import json
 import requests
+import urllib.request
+import os
+import time
 
 # finds the position of frame
 
@@ -105,22 +108,95 @@ def parse_data(data):
     }
     return final_table
 
+# create a function that sees if a file has been added into a directory, and if so, calls the parse_data function and immediately delte the file from the folder.
+
+
+def push_file_to_backup(file_name: str, parsed_data: dict):
+    # create directory backup_folder if it does not exist
+    backup_folder = "/".join(file_name.split("/")[:-1]) + "/"
+    if not os.path.exists(backup_folder):
+        os.makedirs(backup_folder)
+
+    with open(file_name + ".json", "w") as f:
+        json.dump(parsed_data, f, indent=4)
+
+
+def live_feed(folder_name: str, backup_folder: str):
+    # if folder_name doesnt end with /, add it
+    if not folder_name.endswith("/"):
+        folder_name += "/"
+    if not backup_folder.endswith("/"):
+        backup_folder += "/"
+
+    # get the files in the folder
+    files = os.listdir(folder_name)
+    # if there are files in the folder
+    if files:
+        # for each file in the folder
+        for file in files:
+            # open the file
+            with open(folder_name + file, "r") as f:
+                backup_file_name = backup_folder + file
+                # read the file
+                data = f.read()
+                # parse the data
+                parsed_data = parse_data(data)
+                if not connect():
+                    push_file_to_backup(backup_file_name, parsed_data)
+                else:
+                    #  send a post request to the server with the txt file
+                    response = requests.post(
+                        "https://apicactus.herokuapp.com/api/sniff", json=parsed_data)
+                    if response.status_code != 200:
+                        push_file_to_backup(backup_file_name, parsed_data)
+                    else:
+                        print("Successfully sent data to server!")
+
+                # delete the file
+                os.remove(folder_name + file)
+
+
+def connect(host='http://google.com'):
+    """ Function that checks if the internet is connected """
+    try:
+        urllib.request.urlopen(host)  # Python 3.x
+        return True
+    except:
+        return False
+
+
+def backup_process(backup_folder: str):
+    if not backup_folder.endswith("/"):
+        backup_folder += "/"
+
+    # check if connected to the internet
+    if connect() and os.path.exists(backup_folder):
+        # get all the files in the backup folder and send a post request
+        files = os.listdir(backup_folder)
+        for file in files:
+            with open(backup_folder + file, "r") as f:
+                data = json.loads(f.read())
+                response = requests.post(
+                    "https://apicactus.herokuapp.com/api/sniff", json=data)
+                if response.status_code == 200:
+                    print("Successfully sent backup file to server!")
+                    os.remove(backup_folder + file)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--file", help="file to parse", required=True)
+    parser.add_argument(
+        "-f", "--folder", help="folder to add hook on", required=True)
+
+    parser.add_argument(
+        "-b", "--backup_folder", help="backup folder to add hook on", required=True)
     args = parser.parse_args()
 
-    file = open(args.file)
-    data = file.read()
-    final_table = parse_data(data)
-
-    # save final_table to json file with same name as input file
-    file_name = args.file.split(".")[0]
-    with open(file_name + ".json", "w") as f:
-        json.dump(final_table, f, indent=4)
-
-    #  send a post request to the server with the txt file
-    response = requests.post(
-        "https://apicactus.herokuapp.com/api/sniff", json=final_table)
-    print(response.text)
+    start = time.time()
+    while True:
+        live_feed(args.folder, args.backup_folder)
+        time.sleep(1)
+        # call the backup process every X seconds
+        if time.time() - start > 10:
+            backup_process(args.backup_folder)
+            start = time.time()
