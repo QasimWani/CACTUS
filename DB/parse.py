@@ -135,6 +135,11 @@ def live_feed(folder_name: str, backup_folder: str):
         # for each file in the folder
         for file in files:
             # open the file
+            if os.stat(folder_name + file).st_size == 0:
+                print("File is empty, deleting...")
+                os.remove(folder_name + file)
+                continue  # empty file
+
             with open(folder_name + file, "r") as f:
                 backup_file_name = backup_folder + file
                 # read the file
