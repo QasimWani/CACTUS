@@ -5,7 +5,7 @@
 
 # Path to the various directories related BTLE pcap sniffing and processing
 TARGET="~/btle/scans_pcap"
-DEST="~/DB/capture/bluetooth"
+DEST="~/CACTUS/DB/capture/bluetooth"
 ARCHIVE="~/btle/archive"
 
 while [ true ]; do
