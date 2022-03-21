@@ -2,7 +2,7 @@
 
 # Bash script to run the ubertooth-btle command periodically, rotating file names each time
 
-DIR="scans_pcap"
+DIR="~/btle/scans_pcap"
 
 while [ TRUE ]; do
     DATE=`date +"%Y-%m-%d_%T"`
