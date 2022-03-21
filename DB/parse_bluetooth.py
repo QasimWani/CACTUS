@@ -7,8 +7,8 @@ import os
 import time
 
 
-# API = "https://apicactus.herokuapp.com/api/sniff"  # remote
-API = "http://localhost:5000/api/sniff"  # local
+API = "https://apicactus.herokuapp.com/api/sniff"  # remote
+# API = "http://localhost:5000/api/sniff"  # local
 
 # finds the position of frame
 
