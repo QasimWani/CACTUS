@@ -1,7 +1,8 @@
 const express = require("express"),
     app = express(),
     mongoose = require("mongoose"),
-    Sniff = require("./models/sniff"),
+    Wifi = require("./models/wifi"),
+    Bluetooth = require("./models/bluetooth"),
     bodyParser = require("body-parser"),
     dotenv = require("dotenv");
 
@@ -90,30 +91,60 @@ mongoose.connect(URI,connectionParams)
  * data specified by param.
  * @param {Object} data : Check API under models/sniff
  */
-var createObservation = (data)=>{
-    Sniff.create({"capture" : data}, (err, addedObj)=>{
-        if(err)
-        {
-            if(err.code === 11000)
+var createObservation = (data, type)=>{
+    if(type === "wifi")
+    {
+        Wifi.create({"capture" : data}, (err, addedObj)=>{
+            if(err)
             {
-                Sniff.collection.dropIndex("username_1", (err, indexDrop)=>{
-                    if(err)
-                    {
-                        console.error("Failed to drop index duplicate key");
-                        throw new Error(err.message);
-                    }
-                    console.log("index duplicate key drop successful");
-                    createObservation(data);
-                });
+                if(err.code === 11000)
+                {
+                    Wifi.collection.dropIndex("username_1", (err, indexDrop)=>{
+                        if(err)
+                        {
+                            console.error("Failed to drop index duplicate key");
+                            throw new Error(err.message);
+                        }
+                        console.log("index duplicate key drop successful");
+                        createObservation(data);
+                    });
+                }
+                else
+                {
+                    throw new Error(err.message);
+                }
+                
             }
-            else
+            console.log("Successfully created new WiFi object");
+        });
+    }
+    else
+    {
+        Bluetooth.create({"capture" : data}, (err, addedObj)=>{
+            if(err)
             {
-                throw new Error(err.message);
+                if(err.code === 11000)
+                {
+                    Bluetooth.collection.dropIndex("username_1", (err, indexDrop)=>{
+                        if(err)
+                        {
+                            console.error("Failed to drop index duplicate key");
+                            throw new Error(err.message);
+                        }
+                        console.log("index duplicate key drop successful");
+                        createObservation(data);
+                    });
+                }
+                else
+                {
+                    throw new Error(err.message);
+                }
+                
             }
-            
-        }
-        console.log("Successfully created new object");
-    });
+            console.log("Successfully created new Bluetooth object");
+        });
+    }
+    
 };
 
 //******************************************************************** ROUTES *************************************************************************** */
@@ -121,9 +152,9 @@ var createObservation = (data)=>{
 //  create a POST route that will read the json data and create a new Sniff object
 app.post("/api/sniff", (req, res)=>{
     console.log("POST request received");
-    var data = req.body;
-    console.log(data);
-    createObservation(data);
+    var data = req.body.data;
+    const type = req.body.type;
+    createObservation(data, type);
     res.send("Successfully uploaded new object");
 });
 
@@ -133,13 +164,31 @@ app.get("/", (req, res)=>{
 
 // create a route called /showdata that will return all the data in the database
 app.get("/showdata", (req, res)=>{
-    Sniff.find({}, (err, data)=>{
-        if(err)
-        {
-            throw new Error(err.message);
-        }
-        return res.json(data);
-    });
+    if(req.query && req.query.technology === "wifi" )
+    {
+        Wifi.find({}, (err, data)=>{
+            if(err)
+            {
+                throw new Error(err.message);
+            }
+            return res.json(data);
+        });
+    }
+    else if(req.query && req.query.technology === "bluetooth")
+    {
+        Bluetooth.find({}, (err, data)=>{
+            if(err)
+            {
+                throw new Error(err.message);
+            }
+            return res.json(data);
+        });
+    }
+    else
+    {
+        return res.send("Please specify technology. Options: [wifi, bluetooth]");
+    }
+    
 });
 
 app.post("*", (req, res)=>{
@@ -151,14 +200,26 @@ app.listen(process.env.PORT || 5000, process.env.IP,()=>{
     console.log(`Server Connected at port ${process.env.PORT || 5000}`);
  });
 
-// TEMPORARY
+
+//******************************************************************** END *************************************************************************** */
+var destruct = ()=>{
+    Wifi.collection.drop((err, collectionDrop)=>{
+        if(err)
+        {
+            console.error("Failed to drop collection");
+            throw new Error(err.message);
+        }
+        console.log("Wifi Collection dropped successfully");
+    });
+
+    Bluetooth.collection.drop((err, collectionDrop)=>{
+        if(err)
+        {
+            console.error("Failed to drop collection");
+            throw new Error(err.message);
+        }
+        console.log("Bluetooth Collection dropped successfully");
+    });
+}
 // remove the mongo collection Sniff and recreate it
-Sniff.collection.drop((err, collectionDrop)=>{
-    if(err)
-    {
-        console.error("Failed to drop collection");
-        throw new Error(err.message);
-    }
-    console.log("Collection dropped successfully");
-});
-// TEMPORARY
+destruct();

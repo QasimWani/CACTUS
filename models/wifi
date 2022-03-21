@@ -13,7 +13,7 @@ var SniffSchema = new mongoose.Schema({
                 source : String,
             }
         ],
-        signal_strength : [ // to be replaced with meta-data
+        signal_strength : [ // to be replaced with frame meta-data
             {
                 signal_strength : String,
             }
@@ -25,9 +25,10 @@ var SniffSchema = new mongoose.Schema({
                 destination : String,
                 BSS : String,
             }
-        ]
+        ],
+        _timestamp : String, // time of capture
     }
 });
 
 SniffSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model("Sniff", SniffSchema);
+module.exports = mongoose.model("Wifi", SniffSchema);

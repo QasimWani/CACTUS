@@ -6,6 +6,10 @@ import urllib.request
 import os
 import time
 
+
+# API = "https://apicactus.herokuapp.com/api/sniff"  # remote
+API = "http://localhost:5000/api/sniff"  # local
+
 # finds the position of frame
 
 
@@ -35,78 +39,66 @@ def ind_packet_data(data, search_string, end_string=None):
 
 
 def parse_data(data):
-    """ Gathers request_to_send, clear_to_send data, signal strength, authentication"""
+    """ Gathers time data, advertising data, and address data"""
     frames = gather_all_frames(data, "Frame \d+")
 
-    # parse request-to-send and generate dict
-    request_to_send_headers = [ind_packet_data(
-        frame, "Request-to-send") for frame in frames]
+    # parse time information
+    time_dict = []
+    for frame in frames:
+        arrival_time = ind_packet_data(frame, "Arrival Time:", "\n")
+        epoch_time = ind_packet_data(frame, "Epoch Time:", "seconds")
+        time_dict.append(
+            {"arrival": arrival_time, "epoch": epoch_time})
 
-    rts_dict = []
+    # parse address data
+    address_data = [ind_packet_data(
+        frame, "Bluetooth Low Energy Link Layer") for frame in frames]
 
-    # get source/dst addr for all rts header
-    for header in request_to_send_headers:
+    add_dict = []
+    for header in address_data:
+        d = {"source": None, "destination": None}
         if not header:
-            rts_dict.append({"source": None, "destination": None})
+            add_dict.append(d)
             continue
-        source = ind_packet_data(header, "Receiver address:", "\n")
-        destination = ind_packet_data(header, "Transmitter address:", "\n")
-        rts_dict.append({"source": source, "destination": destination})
+        source = ind_packet_data(header, "Scanning Address:", "\n")
+        destination = ind_packet_data(header, "Advertising Address:", "\n")
 
-    # parse clear-to-send and generate dict
-    clear_to_send_headers = [ind_packet_data(
-        frame, "Clear-to-send") for frame in frames]
+        d["source"] = source
+        d["destination"] = destination
+        add_dict.append(d)
 
-    cts_dict = []
+    # parse advertising_data
+    advertising_data = [ind_packet_data(
+        frame, "Advertising Data\n") for frame in frames]
 
-    # get source addr for all cts header
-    for header in clear_to_send_headers:
+    adv_dict = []
+    for header in advertising_data:
+        d = {"device_name": None, "company_id": None, "UUID": None}
         if not header:
-            cts_dict.append({"source": None})
-            continue
-        source = ind_packet_data(header, "Receiver address:", "\n")
-        cts_dict.append({"source": source})
-
-    # frame signal strength
-    radio_headers = [ind_packet_data(
-        frame, "802.11 radio information") for frame in frames]
-
-    signal_strength = []
-
-    # get signal_strength info
-    for header in radio_headers:
-        if not header:
-            signal_strength.append({"signal_strength": None})
+            adv_dict.append(d)
             continue
 
-        ss = ind_packet_data(header, "Signal strength (dBm):", "\n")
-        signal_strength.append({"signal_strength": ss})
+        id = ind_packet_data(header, "UUID 16:", "\n")
+        company_id = ind_packet_data(header, "Company ID:", "\n")
+        device_name = ind_packet_data(header, "Device Name:", "\n")
 
-    # get authentication and BSS id info
-    authentication_header = [ind_packet_data(
-        frame, "IEEE 802.11 Authentication") for frame in frames]
-
-    auth_dict = []
-
-    # get signal_strength info
-    for header in authentication_header:
-        if not header:
-            auth_dict.append(
-                {"source": None, "destination": None, "BSS": None})
-            continue
-
-        s = ind_packet_data(header, "Receiver address:", "\n")
-        d = ind_packet_data(header, "Transmitter address:", "\n")
-        bss = ind_packet_data(header, "BSS Id:", "\n")
-        auth_dict.append({"source": s, "destination": d, "BSS": bss})
+        d["UUID"] = id
+        d["company_id"] = company_id
+        d["device_name"] = device_name
+        adv_dict.append(d)
 
     final_table = {
-        "request_to_send": rts_dict,
-        "clear_to_send": cts_dict,
-        "signal_strength": signal_strength,
-        "auth": auth_dict
+        "data":
+            {
+                "time_stats": time_dict,
+                "address": add_dict,
+                "advertising_data": adv_dict,
+                "_timestamp": int(time.time()).__str__()
+            },
+        "type": "bluetooth"
     }
     return final_table
+
 
 # create a function that sees if a file has been added into a directory, and if so, calls the parse_data function and immediately delte the file from the folder.
 
@@ -125,6 +117,8 @@ def live_feed(folder_name: str, backup_folder: str):
     # if folder_name doesnt end with /, add it
     if not folder_name.endswith("/"):
         folder_name += "/"
+        if not os.path.exists(folder_name):
+            os.makedirs(folder_name)
     if not backup_folder.endswith("/"):
         backup_folder += "/"
 
@@ -151,8 +145,10 @@ def live_feed(folder_name: str, backup_folder: str):
                 else:
                     #  send a post request to the server with the txt file
                     response = requests.post(
-                        "https://apicactus.herokuapp.com/api/sniff", json=parsed_data)
+                        API, json=parsed_data)
+
                     if response.status_code != 200:
+                        print("Server push failed! Uploading to backup folder...")
                         push_file_to_backup(backup_file_name, parsed_data)
                     else:
                         print("Successfully sent data to server!")
@@ -182,7 +178,7 @@ def backup_process(backup_folder: str):
             with open(backup_folder + file, "r") as f:
                 data = json.loads(f.read())
                 response = requests.post(
-                    "https://apicactus.herokuapp.com/api/sniff", json=data)
+                    API, json=data)
                 if response.status_code == 200:
                     print("Successfully sent backup file to server!")
                     os.remove(backup_folder + file)
@@ -191,17 +187,20 @@ def backup_process(backup_folder: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-f", "--folder", help="folder to add hook on", required=True)
+        "-f", "--folder", help="folder to add hook on", default="DB/capture/bluetooth")
 
     parser.add_argument(
-        "-b", "--backup_folder", help="backup folder to add hook on", required=True)
+        "-b", "--backup_folder", help="backup folder to add hook on", default="DB/backup/bluetooth")
     args = parser.parse_args()
 
+    BACKUP_TIMELOG = 20  # calls the backup process every X seconds
+
     start = time.time()
+
     while True:
         live_feed(args.folder, args.backup_folder)
         time.sleep(1)
         # call the backup process every X seconds
-        if time.time() - start > 10:
+        if time.time() - start > BACKUP_TIMELOG:
             backup_process(args.backup_folder)
             start = time.time()
