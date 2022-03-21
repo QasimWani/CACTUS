@@ -122,6 +122,7 @@ var createObservation = (data)=>{
 app.post("/api/sniff", (req, res)=>{
     console.log("POST request received");
     var data = req.body;
+    console.log(data);
     createObservation(data);
     res.send("Successfully uploaded new object");
 });
@@ -152,12 +153,12 @@ app.listen(process.env.PORT || 5000, process.env.IP,()=>{
 
 // TEMPORARY
 // remove the mongo collection Sniff and recreate it
-// Sniff.collection.drop((err, collectionDrop)=>{
-//     if(err)
-//     {
-//         console.error("Failed to drop collection");
-//         throw new Error(err.message);
-//     }
-//     console.log("Collection dropped successfully");
-// });
+Sniff.collection.drop((err, collectionDrop)=>{
+    if(err)
+    {
+        console.error("Failed to drop collection");
+        throw new Error(err.message);
+    }
+    console.log("Collection dropped successfully");
+});
 // TEMPORARY
