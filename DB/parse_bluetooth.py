@@ -63,8 +63,12 @@ def parse_data(data):
         source = ind_packet_data(header, "Scanning Address:", "\n")
         destination = ind_packet_data(header, "Advertising Address:", "\n")
 
-        d["source"] = source
-        d["destination"] = destination
+        if not source:
+            d["source"] = destination
+            d["destination"] = "Broadcast"
+        else:
+            d["source"] = source
+            d["destination"] = destination
         add_dict.append(d)
 
     # parse advertising_data
