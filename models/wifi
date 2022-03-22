@@ -26,7 +26,7 @@ var SniffSchema = new mongoose.Schema({
                 BSS : String,
             }
         ],
-        _timestamp : String, // time of capture
+        _timestamp : Number, // time of capture
     }
 });
 

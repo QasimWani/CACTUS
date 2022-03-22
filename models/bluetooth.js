@@ -22,7 +22,7 @@ var SniffSchema = new mongoose.Schema({
                 UUID : String
             }
         ],
-        _timestamp : String, // time of capture
+        _timestamp : Number, // time of capture
     }
 });
 
