@@ -20,14 +20,19 @@ cd ~/Ubertooth-One
 2. Install the Ubertooth One files according to the Software "Building from git" page (not the "Build Guide" page):
 
 https://ubertooth.readthedocs.io/en/latest/building_from_git.html
+
 a) Follow the instructions under "Debian"
+
 b) Follow the instructions under "libbtbb"
+
 c) Navigate back to the Ubertooth One directory in Home ( `cd ~/Ubertooth-One` ), then follow the instructions under "Ubertooth Tools
 
 3. This set up can be tested by going through the features show in the "Getting Started" page:
 
 https://ubertooth.readthedocs.io/en/latest/getting_started.html
+
 a) The `ubertooth-specan-ui` executable can be executed from anywhere in the file system, but it is worth noting that the executable file is stored in the `~/Ubertooth-One/ubertooth/host/python/specan_ui` directory
+
 b) For LAP sniffing, the tools in libbtbb should already be compiled from the installation instructions in Step 2. The `ubertooth-rx` executable can be called from anywhere, but it is worth noting that the executable file is stored in the `~/Ubertooth-One/ubertooth/host/ubertooth-tools/src` directory
 
 ## Sniffing Bluetooth Packets Autonomously
