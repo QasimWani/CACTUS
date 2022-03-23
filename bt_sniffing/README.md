@@ -46,21 +46,3 @@ There are two scripting files that are used in this project to autonomously snif
 2. pcap_to_txt
 
 As the file name states, `pcap_to_txt` will convert PCAP files to TXT files by using Tshark. The script does this by reading through the PCAP directory, searching for the first/last PCAP file in the directory, creating a TXT file from it, and then either deleting or archiving the PCAP file. The TXT file is stored in the Bluetooth capture directory in this repo so that they can be parsed into JSON file and stored in a Mongo database.
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-README.md[+] [unix] (14:04 23/03/2022)                                   6,1 All
--- INSERT --
-
-``
