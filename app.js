@@ -86,26 +86,45 @@ mongoose.connect(URI,connectionParams)
 // }, 9.99*1000*60);
 
 // Removes all data from the database -- use with caution
-// create an async function
-
 var destruct = async ()=>{
-    Wifi.collection.drop((err, collectionDrop)=>{
-        if(err)
-        {
-            console.error("Failed to drop collection");
-            throw new Error(err.message);
+    // make sure wifi collection exists
+    Wifi.collection.count((err, count)=> {
+        if (!err && count > 0) {
+            Wifi.collection.drop((err, collectionDrop)=>{
+                if(err)
+                {
+                    console.error("Failed to drop collection");
+                    throw new Error(err.message);
+                }
+                console.log("Wifi Collection dropped successfully");
+            });
         }
-        console.log("Wifi Collection dropped successfully");
+        else
+        {
+            console.log("Wifi Collection exists");
+        }
+    });
+    
+    Bluetooth.collection.count((err, count)=> {
+        if (!err && count > 0) {
+            Bluetooth.collection.drop((err, collectionDrop)=>{
+                if(err)
+                {
+                    console.error("Failed to drop collection");
+                    throw new Error(err.message);
+                }
+                console.log("Bluetooth Collection dropped successfully");
+            });
+        }
+        else
+        {
+            console.log("Bluetooth Collection exists");
+        }
     });
 
-    Bluetooth.collection.drop((err, collectionDrop)=>{
-        if(err)
-        {
-            console.error("Failed to drop collection");
-            throw new Error(err.message);
-        }
-        console.log("Bluetooth Collection dropped successfully");
-    });
+    
+
+    
 }
 
 
@@ -216,7 +235,7 @@ app.get("/showdata", (req, res)=>{
 
 // create a route called /danger/removedata that will return all the data in the database
 app.get("/danger/removedata", (req, res)=>{
-    await destruct().then(()=>{
+    destruct().then(()=>{
         res.send("Successfully removed all data from database");
     });
 
@@ -230,6 +249,3 @@ app.post("*", (req, res)=>{
 app.listen(process.env.PORT || 5000, process.env.IP,()=>{
     console.log(`Server Connected at port ${process.env.PORT || 5000}`);
  });
-
-
-// destruct();
