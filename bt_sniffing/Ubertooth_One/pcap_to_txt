@@ -3,15 +3,15 @@
 # Bash script to read through the scanned PCAP directory,
 # convert them to TXT files, and delete processed PCAP files
 
-# Path to the various directories related BTLE pcap sniffing and processing
-TARGET="~/btle/scans_pcap"
-DEST="~/CACTUS/DB/capture/bluetooth"
-ARCHIVE="~/btle/archive"
+# Path to the various directories related to BTLE pcap sniffing and processing
+TARGET="/home/pi/btle/scans_pcap"
+DEST="/home/pi/CACTUS/DB/capture/bluetooth"
+ARCHIVE="/home/pi/btle/archive"
 
 while [ true ]; do
     # Putting the contents of the target directory into a bash list
     FILES=("$TARGET"/*.pcap)
-
+    
     # When the target directory does not have any .pcap files, the FILES list
     # will have one element: <directory name>/*.pcap
     # This means if that element is present, the target directory had nothing
@@ -23,16 +23,20 @@ while [ true ]; do
         # For older versions of bash, use "${FILES[${#FILES[@]}-1]}"
         # to get the last element in the list
         # echo "${FILES[-1]}"
-        
+
         # This redundant check seems to be necessary
         if [ "${FILES[-1]}" != ""$TARGET"/*.pcap" ]; then
-            # Use tshark to process the PCAP file and make a TXT file
-            tshark -r "${FILES[-1]}" -V > ""$DEST"/$(basename "${FILES[-1]}" .pcap).txt"
-            # Move the processed PCAP out of the folder so that it is only
+            # Use tshark to process the last/most recent PCAP file and make a
+	    # TXT file from it
+	    tshark -r "${FILES[-1]}" -V > ""$DEST"/$(basename "${FILES[-1]}" .pcap).txt"
+
+            # Move the original PCAP out of the folder so that it is only
             # processed once
-            mv "${FILES[-1]}" $ARCHIVE/$(basename "${FILES[-1]}")
+            #mv "${FILES[-1]}" $ARCHIVE/$(basename "${FILES[-1]}") # archiving
+	    rm -f "${FILES[-1]}" # deleting
+
             # Let the user know that the job was completed
-            echo "${FILES[-1]} converted to "$DEST/$(basename "${FILES[-1]}" .pcap).txt", then archived"
+            echo "${FILES[-1]} converted to ""$DEST"/$(basename "${FILES[-1]}" .pcap).txt", then removed"
         fi
     fi
 done

@@ -1,12 +1,17 @@
 #!/bin/bash
 
-# Bash script to run the ubertooth-btle command periodically, rotating file names each time
+# Bash script to run the ubertooth-btle command periodically, rotating file
+# names each time
+# To debug, set a short TIMER value and uncomment the line with the sleep
+# command
 
-DIR="~/btle/scans_pcap"
-TIMER=60
+DIR="/home/pi/btle/scans_pcap"
+TIMER=5
 
 while [ TRUE ]; do
     DATE=`date +"%Y-%m-%d_%T"`
     timeout $TIMER ubertooth-btle -f -q ""$DIR"/bt_$DATE.pcap"
+    # sleep is used to allow the user to stop the program with ctrl-C between
+    # scans
     # sleep 1
 done
