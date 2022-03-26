@@ -85,6 +85,27 @@ mongoose.connect(URI,connectionParams)
 //     console.debug("API loaded again");
 // }, 9.99*1000*60);
 
+// Removes all data from the database -- use with caution
+var destruct = ()=>{
+    Wifi.collection.drop((err, collectionDrop)=>{
+        if(err)
+        {
+            console.error("Failed to drop collection");
+            throw new Error(err.message);
+        }
+        console.log("Wifi Collection dropped successfully");
+    });
+
+    Bluetooth.collection.drop((err, collectionDrop)=>{
+        if(err)
+        {
+            console.error("Failed to drop collection");
+            throw new Error(err.message);
+        }
+        console.log("Bluetooth Collection dropped successfully");
+    });
+}
+
 
 /**
  * helper function for creating a new Sniff Object
@@ -191,6 +212,11 @@ app.get("/showdata", (req, res)=>{
     
 });
 
+// create a route called /danger/removedata that will return all the data in the database
+app.get("/danger/removedata", (req, res)=>{
+    destruct();
+});
+
 app.post("*", (req, res)=>{
     res.send("Invalid API route");
 });
@@ -201,25 +227,4 @@ app.listen(process.env.PORT || 5000, process.env.IP,()=>{
  });
 
 
-//******************************************************************** END *************************************************************************** */
-var destruct = ()=>{
-    Wifi.collection.drop((err, collectionDrop)=>{
-        if(err)
-        {
-            console.error("Failed to drop collection");
-            throw new Error(err.message);
-        }
-        console.log("Wifi Collection dropped successfully");
-    });
-
-    Bluetooth.collection.drop((err, collectionDrop)=>{
-        if(err)
-        {
-            console.error("Failed to drop collection");
-            throw new Error(err.message);
-        }
-        console.log("Bluetooth Collection dropped successfully");
-    });
-}
-// remove the mongo collection Sniff and recreate it
 // destruct();
