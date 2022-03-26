@@ -7,8 +7,8 @@ import os
 import time
 
 
-API = "https://apicactus.herokuapp.com/api/sniff"  # remote
-# API = "http://localhost:5000/api/sniff"  # local
+# API = "https://apicactus.herokuapp.com"  # remote
+API = "http://localhost:5000"  # local
 
 
 # finds the position of frame
@@ -37,7 +37,7 @@ def ind_packet_data(data, search_string, end_string=None):
     return None
 
 
-def parse_data(data):
+def parse_data(data, file_creation_time: int):
     """ Gathers request_to_send, clear_to_send data, signal strength, authentication"""
     frames = gather_all_frames(data, "Frame \d+")
 
@@ -110,7 +110,7 @@ def parse_data(data):
                 "clear_to_send": cts_dict,
                 "signal_strength": signal_strength,
                 "auth": auth_dict,
-                "_timestamp": int(time.time()).__str__()
+                "_timestamp": file_creation_time
             },
         "type": "wifi"
     }
@@ -139,29 +139,33 @@ def live_feed(folder_name: str, backup_folder: str):
         backup_folder += "/"
 
     # get the files in the folder
-    files = os.listdir(folder_name)
+    files = [folder_name + x for x in os.listdir(folder_name)]
+    files = sorted(files,
+                   key=os.path.getmtime, reverse=True)
     # if there are files in the folder
     if files:
         # for each file in the folder
         for file in files:
             # open the file
-            if os.stat(folder_name + file).st_size == 0:
+            if os.stat(file).st_size == 0:
                 print("File is empty, deleting...")
-                os.remove(folder_name + file)
+                os.remove(file)
                 continue  # empty file
 
-            with open(folder_name + file, "r") as f:
-                backup_file_name = backup_folder + file
+            with open(file, "r") as f:
+                backup_file_name = backup_folder + file.split("/")[-1]
                 # read the file
                 data = f.read()
                 # parse the data
-                parsed_data = parse_data(data)
+                parsed_data = parse_data(data, os.path.getctime(file))
+                # replace `file_creation_time` with file.split("/")[-1]
+
                 if not connect():
                     push_file_to_backup(backup_file_name, parsed_data)
                 else:
                     #  send a post request to the server with the txt file
                     response = requests.post(
-                        API, json=parsed_data)
+                        API + "/api/sniff", json=parsed_data)
                     if response.status_code != 200:
                         print("Server push failed! Uploading to backup folder...")
                         push_file_to_backup(backup_file_name, parsed_data)
@@ -169,11 +173,11 @@ def live_feed(folder_name: str, backup_folder: str):
                         print("Successfully sent data to server!")
 
                 # delete the file
-                os.remove(folder_name + file)
+                os.remove(file)
 
 
-def connect(host='http://google.com'):
-    """ Function that checks if the internet is connected """
+def connect(host=API):
+    """ Function that checks if the internet is connected and access to API """
     try:
         urllib.request.urlopen(host)  # Python 3.x
         return True
@@ -188,15 +192,17 @@ def backup_process(backup_folder: str):
     # check if connected to the internet
     if connect() and os.path.exists(backup_folder):
         # get all the files in the backup folder and send a post request
-        files = os.listdir(backup_folder)
+        files = [backup_folder + x for x in os.listdir(backup_folder)]
+        files = sorted(files,
+                       key=os.path.getmtime, reverse=True)
         for file in files:
-            with open(backup_folder + file, "r") as f:
+            with open(file, "r") as f:
                 data = json.loads(f.read())
                 response = requests.post(
-                    API, json=data)
+                    API + "/api/sniff", json=data)
                 if response.status_code == 200:
                     print("Successfully sent backup file to server!")
-                    os.remove(backup_folder + file)
+                    os.remove(file)
 
 
 if __name__ == "__main__":

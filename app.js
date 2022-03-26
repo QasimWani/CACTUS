@@ -208,7 +208,7 @@ app.get("/", (req, res)=>{
 app.get("/showdata", (req, res)=>{
     if(req.query && req.query.technology === "wifi" )
     {
-        Wifi.find({}, (err, data)=>{
+        Wifi.find().sort({'capture._timestamp' : -1}).exec((err, data)=>{
             if(err)
             {
                 throw new Error(err.message);
@@ -218,7 +218,7 @@ app.get("/showdata", (req, res)=>{
     }
     else if(req.query && req.query.technology === "bluetooth")
     {
-        Bluetooth.find({}, (err, data)=>{
+        Bluetooth.find().sort({'capture._timestamp' : -1}).exec((err, data)=>{
             if(err)
             {
                 throw new Error(err.message);
