@@ -86,7 +86,9 @@ mongoose.connect(URI,connectionParams)
 // }, 9.99*1000*60);
 
 // Removes all data from the database -- use with caution
-var destruct = ()=>{
+// create an async function
+
+var destruct = async ()=>{
     Wifi.collection.drop((err, collectionDrop)=>{
         if(err)
         {
@@ -214,7 +216,10 @@ app.get("/showdata", (req, res)=>{
 
 // create a route called /danger/removedata that will return all the data in the database
 app.get("/danger/removedata", (req, res)=>{
-    destruct();
+    await destruct().then(()=>{
+        res.send("Successfully removed all data from database");
+    });
+
 });
 
 app.post("*", (req, res)=>{
