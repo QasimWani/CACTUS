@@ -6,8 +6,8 @@ import urllib.request
 import os
 import time
 
-# API = "https://apicactus.herokuapp.com"  # remote
-API = "http://localhost:5000"  # local
+API = "https://apicactus.herokuapp.com"  # remote
+# API = "http://localhost:5000"  # local
 
 # finds the position of frame
 
