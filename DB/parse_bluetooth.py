@@ -134,7 +134,7 @@ def live_feed(folder_name: str, backup_folder: str):
     if files:
         # for each file in the folder
         for file in files:
-            print(file)
+            time.sleep(1) # delay to ensure files aren't skipped
 
             # open the file
             if os.stat(file).st_size == 0:
