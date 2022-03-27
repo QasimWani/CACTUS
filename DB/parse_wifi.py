@@ -146,7 +146,7 @@ def live_feed(folder_name: str, backup_folder: str):
     if files:
         # for each file in the folder
         for file in files:
-            time.sleep(1) # delay to ensure files aren't skipped
+            time.sleep(1)  # delay to ensure files aren't skipped
             # open the file
             if os.stat(file).st_size == 0:
                 print("File is empty, deleting...")
@@ -197,6 +197,7 @@ def backup_process(backup_folder: str):
         files = sorted(files,
                        key=os.path.getmtime, reverse=True)
         for file in files:
+            time.sleep(1)  # delay to ensure files aren't skipped
             with open(file, "r") as f:
                 data = json.loads(f.read())
                 response = requests.post(

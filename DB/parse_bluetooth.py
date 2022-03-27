@@ -187,6 +187,7 @@ def backup_process(backup_folder: str):
         files = sorted(files,
                        key=os.path.getmtime, reverse=True)
         for file in files:
+            time.sleep(1)  # delay to ensure files aren't skipped
             with open(file, "r") as f:
                 data = json.loads(f.read())
                 response = requests.post(
