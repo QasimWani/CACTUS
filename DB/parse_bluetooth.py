@@ -134,7 +134,7 @@ def live_feed(folder_name: str, backup_folder: str):
     if files:
         # for each file in the folder
         for file in files:
-            time.sleep(1) # delay to ensure files aren't skipped
+            time.sleep(1)  # delay to ensure files aren't skipped
 
             # open the file
             if os.stat(file).st_size == 0:
@@ -187,13 +187,13 @@ def backup_process(backup_folder: str):
         files = sorted(files,
                        key=os.path.getmtime, reverse=True)
         for file in files:
-            with open(backup_folder + file, "r") as f:
+            with open(file, "r") as f:
                 data = json.loads(f.read())
                 response = requests.post(
                     API + "/api/sniff", json=data)
                 if response.status_code == 200:
                     print("Successfully sent backup file to server!")
-                    os.remove(backup_folder + file)
+                    os.remove(file)
 
 
 if __name__ == "__main__":
