@@ -5,6 +5,7 @@ import requests
 import urllib.request
 import os
 import time
+import sys
 
 API = "https://apicactus.herokuapp.com"  # remote
 # API = "http://localhost:5000"  # local
@@ -138,7 +139,7 @@ def live_feed(folder_name: str, backup_folder: str):
 
             # open the file
             if os.stat(file).st_size == 0:
-                print("File is empty, deleting...")
+                print("File is empty, deleting...", file=sys.stderr)
                 os.remove(file)
                 continue  # empty file
 
@@ -158,10 +159,11 @@ def live_feed(folder_name: str, backup_folder: str):
                         API + "/api/sniff", json=parsed_data)
 
                     if response.status_code != 200:
-                        print("Server push failed! Uploading to backup folder...")
+                        print(
+                            "Server push failed! Uploading to backup folder...", file=sys.stderr)
                         push_file_to_backup(backup_file_name, parsed_data)
                     else:
-                        print("Successfully sent data to server!")
+                        print("Successfully sent data to server!", file=sys.stderr)
 
                 # delete the file
                 os.remove(file)
@@ -193,7 +195,8 @@ def backup_process(backup_folder: str):
                 response = requests.post(
                     API + "/api/sniff", json=data)
                 if response.status_code == 200:
-                    print("Successfully sent backup file to server!")
+                    print("Successfully sent backup file to server!",
+                          file=sys.stderr)
                     os.remove(file)
 
 
