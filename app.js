@@ -129,11 +129,7 @@ var destruct = async ()=>{
         }
     });
 
-    
-
-    
 }
-
 
 /**
  * helper function for creating a new Sniff Object
@@ -241,6 +237,35 @@ app.get("/showdata", (req, res)=>{
     }
     
 });
+
+// create a route called /query that takes in input a MAC address string and returns the data that matches the query
+// app.get("/query", (req, res)=>{
+//     if(req.query && req.query.technology === "wifi" )
+//     {
+//         Wifi.find(req.query).sort({'capture._timestamp' : -1}).limit(limit).exec((err, data)=>{
+//             if(err)
+//             {
+//                 throw new Error(err.message);
+//             }
+//             return res.json(data);
+//         });
+//     }
+//     else if(req.query && req.query.technology === "bluetooth")
+//     {
+//         Bluetooth.find(req.query).sort({'capture._timestamp' : -1}).limit(limit).exec((err, data)=>{
+//             if(err)
+//             {
+//                 throw new Error(err.message);
+//             }
+//             return res.json(data);
+//         });
+//     }
+//     else
+//     {
+//         return res.send("Please specify technology. Options: [wifi, bluetooth]");
+//     }
+    
+// });
 
 // create a route called /danger/removedata that will return all the data in the database
 app.get("/danger/removedata", (req, res)=>{
