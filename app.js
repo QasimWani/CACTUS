@@ -211,11 +211,13 @@ app.get("/", (req, res)=>{
     res.send("Hello world!");
 });
 
+const limit = 10; // number of objects to return
+
 // create a route called /showdata that will return all the data in the database
 app.get("/showdata", (req, res)=>{
     if(req.query && req.query.technology === "wifi" )
     {
-        Wifi.find().sort({'capture._timestamp' : -1}).exec((err, data)=>{
+        Wifi.find().sort({'capture._timestamp' : -1}).limit(limit).exec((err, data)=>{
             if(err)
             {
                 throw new Error(err.message);
@@ -225,7 +227,7 @@ app.get("/showdata", (req, res)=>{
     }
     else if(req.query && req.query.technology === "bluetooth")
     {
-        Bluetooth.find().sort({'capture._timestamp' : -1}).exec((err, data)=>{
+        Bluetooth.find().sort({'capture._timestamp' : -1}).limit(limit).exec((err, data)=>{
             if(err)
             {
                 throw new Error(err.message);
