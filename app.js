@@ -207,7 +207,7 @@ app.get("/", (req, res)=>{
     res.send("Hello world!");
 });
 
-const limit = 10; // number of objects to return
+const limit = 20; // number of objects to return
 
 // create a route called /showdata that will return all the data in the database
 app.get("/showdata", (req, res)=>{
