@@ -104,6 +104,10 @@ def parse_data(data, file_creation_time: int):
         bss = ind_packet_data(header, "BSS Id:", "\n")
         auth_dict.append({"source": s, "destination": d, "BSS": bss})
 
+    # get channel frequency
+    channel_frequency = ind_packet_data(
+        frames[0], "Channel frequency:", "\n").split(" ")[0]
+
     final_table = {
         "data":
             {
@@ -111,10 +115,12 @@ def parse_data(data, file_creation_time: int):
                 "clear_to_send": cts_dict,
                 "signal_strength": signal_strength,
                 "auth": auth_dict,
-                "_timestamp": file_creation_time
+                "_timestamp": file_creation_time,
+                "channel_frequency": channel_frequency
             },
         "type": "wifi"
     }
+
     return final_table
 
 # create a function that sees if a file has been added into a directory, and if so, calls the parse_data function and immediately delte the file from the folder.
