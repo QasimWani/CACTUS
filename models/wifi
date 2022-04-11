@@ -27,7 +27,7 @@ var SniffSchema = new mongoose.Schema({
             }
         ],
         _timestamp : String, // time of capture
-        channel_frequency : Number, // 2.4Ghz or 5Ghz
+        channel_frequency : String, // 2.4Ghz or 5Ghz
     }
 });
 

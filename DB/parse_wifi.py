@@ -106,7 +106,7 @@ def parse_data(data, file_creation_time: int):
 
     # get channel frequency
     channel_frequency = ind_packet_data(
-        frames[0], "Channel frequency:", "\n").split(" ")[0]
+        frames[0], "Channel frequency:", "\n")
 
     final_table = {
         "data":
