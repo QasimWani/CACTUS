@@ -13,5 +13,9 @@ while [ TRUE ]; do
     timeout $TIMER /usr/local/bin/ubertooth-btle -f -q ""$DIR"/bt_$DATE.pcap"
     # sleep is used to allow the user to stop the program with ctrl-C between
     # scans
-    # sleep 1
+    sleep 5
+    sudo uhubctl -l 1-1 -p 3 -a off -r 1
+    sleep 5
+    sudo uhubctl -l 1-1 -p 3 -a on -r 1
+    sleep 5
 done
