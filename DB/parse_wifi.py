@@ -230,9 +230,12 @@ if __name__ == "__main__":
     start = time.time()
 
     while True:
-        live_feed(args.folder, args.backup_folder)
-        time.sleep(1)
-        # call the backup process every X seconds
-        if time.time() - start > BACKUP_TIMELOG:
-            backup_process(args.backup_folder)
-            start = time.time()
+        try:
+            live_feed(args.folder, args.backup_folder)
+            time.sleep(1)
+            # call the backup process every X seconds
+            if time.time() - start > BACKUP_TIMELOG:
+                backup_process(args.backup_folder)
+                start = time.time()
+        except:
+            print("Something bad WiiFi!")
